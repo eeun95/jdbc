@@ -36,7 +36,7 @@ public class MemberRepositoryV0 {
     }
 
     private void close(Connection con, Statement stmt, ResultSet rs) {
-        // pstmt가 파라미터를 바인딩할 수 있음
+        // pstmt는 stmt에 파라미터를 바인딩하는 기능이 추가된 것
 
         if(stmt != null) {
             try {
