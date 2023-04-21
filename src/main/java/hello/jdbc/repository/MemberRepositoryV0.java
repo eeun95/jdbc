@@ -45,7 +45,7 @@ public class MemberRepositoryV0 {
 
         try {
             con = getConnection();
-            con.prepareStatement(sql);
+            pstmt = con.prepareStatement(sql);
             pstmt.setString(1, memberId);
 
             rs = pstmt.executeQuery();
@@ -60,6 +60,8 @@ public class MemberRepositoryV0 {
         } catch (SQLException e) {
             log.error("db error", e);
             throw e;
+        } finally {
+            close(con, pstmt, rs);
         }
     }
 
