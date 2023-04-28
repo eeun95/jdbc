@@ -55,6 +55,21 @@ public class ConnectionTest {
         // 향후 변경에 더 유연하게 대처할 수 있음
         Connection con1 = dataSource.getConnection();
         Connection con2 = dataSource.getConnection();
+        /*
+        Connection con3 = dataSource.getConnection();
+        Connection con4 = dataSource.getConnection();
+        Connection con5 = dataSource.getConnection();
+        Connection con6 = dataSource.getConnection();
+        Connection con7 = dataSource.getConnection();
+        Connection con8 = dataSource.getConnection();
+        Connection con9 = dataSource.getConnection();
+        Connection con10 = dataSource.getConnection();
+
+        // 풀이 찼는데 커넥션을 획득하려고 하면 block 이 돼버림
+        // connection time out 남
+        Connection con11 = dataSource.getConnection();
+         */
+
         log.info("connection={}, class={}", con1, con1.getClass());
         log.info("connection={}, class={}", con2, con2.getClass());
     }
