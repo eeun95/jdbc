@@ -20,6 +20,7 @@ public class MemberServiceV2 {
     private final MemberRepositoryV2 memberRepository;
 
     public void accountTransfer(String fromId, String toId, int money) throws SQLException {
+        log.info("MemberService dataSource={}", dataSource);
         Connection con = dataSource.getConnection();
         try {
             // 트랜잭션 시작

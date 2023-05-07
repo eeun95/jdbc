@@ -18,6 +18,7 @@ public class MemberRepositoryV2 {
 
     public MemberRepositoryV2(DataSource dataSource) {
         this.dataSource = dataSource;
+        log.info("MemberRepository={}", dataSource);
     }
 
     public Member save(Member member) throws SQLException{
