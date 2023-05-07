@@ -25,11 +25,15 @@ public class MemberServiceV2 {
             // 트랜잭션 시작
             con.setAutoCommit(false);
 
+            log.info("START TX");
             bizLogic(con, fromId, toId, money);
 
+            log.info("COMMIT TX");
             // 성공 시 커밋
             con.commit();
         } catch (Exception e) {
+
+            log.info("ROLLBACK TX");
             con.rollback();
             throw new IllegalStateException(e);
         } finally {
@@ -42,9 +46,9 @@ public class MemberServiceV2 {
         Member fromMember = memberRepository.findById(con, fromId);
         Member toMember = memberRepository.findById(con, toId);
 
-        memberRepository.update(fromId, fromMember.getMoney() - money);
+        memberRepository.update(con, fromId, fromMember.getMoney() - money);
         validation(toMember);
-        memberRepository.update(toId, toMember.getMoney() + money);
+        memberRepository.update(con, toId, toMember.getMoney() + money);
     }
 
     private void release(Connection con) {
