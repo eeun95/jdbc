@@ -83,9 +83,9 @@ select for update 사용
 2. 예외 누수 문제
   - 데이터 접근 계층의 JDBC 구현 기술 예외가 서비스 계층으로 전파된다
     - SQLException은 체크 예외이기 때문에 데이터 접근 게층을 호출한 서비스 계층에서 해당 예외를 잡아서 처리하거나 명시적으로 thorws를 통해서 다시 밖으로 던져야함 
-    - SQLException은 JDBC 전용 기술이기 때문에 향후 JPA같은 기술을 사용할 경우 다 변경해야함
-  - JDBC 반복 문제
-    - 유사한 코드의 반복이 너무 많음
-      - try, catch, finally...
-      - PreparedStatement 사용하고 결과 매핑하고 실행하고 .. 커넥션과 리소스 정리 ...
+    - SQLException은 JDBC 전용 기술이기 때문에 향후 JPA같은 기술을 사용할 경우 다 변경해야함 
+3.JDBC 반복 문제
+  - 유사한 코드의 반복이 너무 많음
+    - try, catch, finally...
+    - PreparedStatement 사용하고 결과 매핑하고 실행하고 .. 커넥션과 리소스 정리 ...
       
