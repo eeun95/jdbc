@@ -94,3 +94,7 @@ select for update 사용
 - 트랜잭션은 원자적 비즈니스 로직을 처리하기 위해 사용한다
   - JDBC : con.setAutoCommit(false);
   - JPA  : transaction.begin();
+
+JDBC 기술을 사용하다가 JPA 기술로 변경하게 되면 서비스 계층의 코드도 모두 수정해야 한다(단일 책임 원칙 위배)
+이 문제를 해결하기 위해 트랜잭션 기능을 추상화하면 된다
+
