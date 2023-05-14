@@ -88,4 +88,9 @@ select for update 사용
   - 유사한 코드의 반복이 너무 많음
     - try, catch, finally...
     - PreparedStatement 사용하고 결과 매핑하고 실행하고 .. 커넥션과 리소스 정리 ...
-      
+    
+### 트랜잭션 추상화  
+구현 기술에 따른 트랜잭션 사용법
+- 트랜잭션은 원자적 비즈니스 로직을 처리하기 위해 사용한다
+  - JDBC : con.setAutoCommit(false);
+  - JPA  : transaction.begin();
